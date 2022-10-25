@@ -11,9 +11,11 @@ import {
 import { EventClass } from '../model/event';
 
 
-interface ContainerProps { }
+interface ContainerProps {
+    method:any
+}
 
-const EventList: React.FC<ContainerProps> = () => {
+const EventList: React.FC<ContainerProps> = (method) => {
     const [data, setData] = useState<Array<EventClass>>()
     const [disabled, setDisabled] = useState(false)
 
@@ -69,7 +71,7 @@ const EventList: React.FC<ContainerProps> = () => {
                     </IonRow>
                 </IonItem>
                 <IonItemOptions side="end">
-                    <IonItemOption color="secondary" >Edit</IonItemOption>
+                    <IonItemOption color="secondary" onClick={()=> method.method(event)}>Edit</IonItemOption>
                     <IonItemOption color="danger" >Delete</IonItemOption>
                 </IonItemOptions>
             </IonItemSliding>

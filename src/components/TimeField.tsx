@@ -24,7 +24,7 @@ const TimeField: React.FC<ContainerProps> = (time) => {
         <div>
             <IonItem class="ion-text-center">
                 <IonLabel position="floating"><h2>Time</h2></IonLabel>
-                <IonDatetime></IonDatetime>
+                <IonDatetime value={time.time}></IonDatetime>
             </IonItem>
         </div>
     )

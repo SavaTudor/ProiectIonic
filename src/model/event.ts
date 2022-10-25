@@ -10,4 +10,5 @@ export class EventClass{
         this.time = t;
         this.location = l;
     }
+
 }
