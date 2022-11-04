@@ -17,6 +17,9 @@ const Home: React.FC = () => {
       setShow(!show)
       if(event!==undefined){
          setEvent(event)
+         setEventSelected(true)
+      }else{
+        setEventSelected(false)
       }
   }
 
@@ -35,7 +38,7 @@ const Home: React.FC = () => {
         </IonHeader>
         {show && (
           <div>
-            <EventDetailsPopUp event={event} method={handleEditAddClick}/>
+            <EventDetailsPopUp eventSelected={eventSelected} event={event} method={handleEditAddClick}/>
             
           </div>
         )}

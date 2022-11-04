@@ -23,13 +23,14 @@ import TimeField from '../components/TimeField'
 import DateField from '../components/DateField'
 import { add,save, exit} from 'ionicons/icons';
 interface ContainerProps {
+    eventSelected:boolean,
     event?: EventClass,
     method?:any
 }
 const EventDetailsPopUp: React.FC<ContainerProps> = (props) => {
-    const [name, setName] = useState(props?.event?.name)
-    const [location, setLocation] = useState(props?.event?.location)
-    const [time, setTime] = useState(props.event?.time)
+    const [name, setName] = useState<string | undefined>(undefined)
+    const [location, setLocation] =  useState<string | undefined>(undefined)
+    const [time, setTime] =  useState<string | undefined>(undefined)
 
     const sendPostRequest = () =>{
        
@@ -46,7 +47,17 @@ const EventDetailsPopUp: React.FC<ContainerProps> = (props) => {
         }
     }
 
-    
+    useEffect(() =>{
+        if(props.eventSelected){
+            setName(props.event?.name)
+            setLocation(props.event?.location)
+            setTime(props.event?.time)
+        }else{
+            setName("")
+            setLocation("")
+            setTime("")
+        }
+    }, [])
 
     return(
         <div>
